@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Roadmap Interativo - Desenvolvimento Moderno</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:20px;background:#f7fafc;color:#0f172a}
+  h1{font-size:22px;margin-bottom:8px}
+  .container{max-width:1000px;margin:0 auto;background:white;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.08)}
+  details{margin:10px 0;padding:10px;border-radius:8px;background:#f1f5f9}
+  summary{font-weight:700;cursor:pointer}
+  ul{margin:8px 0 0 18px;list-style:none;padding:0}
+  li{margin:6px 0}
+  .note{font-size:13px;color:#475569;margin-top:12px}
+  input[type="checkbox"]{margin-right:6px}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>📌 Roadmap Interativo — Ferramentas e Boas Práticas</h1>
+    <p class="note">Marque os checkboxes para acompanhar seu progresso. O navegador salva automaticamente.</p>
+
+    <!-- Fase 1 -->
+    <details open>
+      <summary>1️⃣ Fundamentos e Ferramentas</summary>
+      <ul>
+        <li><input type="checkbox" id="ide"> IDE: IntelliJ, VSCode, pgAdmin, DBeaver</li>
+        <li><input type="checkbox" id="plugins"> Plugins: GitLens, SonarLint, Docker Extension</li>
+        <li><input type="checkbox" id="git"> GitHub: clone, push/pull, issues, actions</li>
+      </ul>
+    </details>
+
+    <!-- Fase 2 -->
+    <details>
+      <summary>2️⃣ Banco de Dados & SQL</summary>
+      <ul>
+        <li><input type="checkbox" id="sql1"> Normalização e Desnormalização</li>
+        <li><input type="checkbox" id="sql2"> Otimização de consultas</li>
+        <li><input type="checkbox" id="sql3"> Migração: Flyway, Liquibase</li>
+      </ul>
+    </details>
+
+    <!-- Fase 3 -->
+    <details>
+      <summary>3️⃣ APIs e Integrações</summary>
+      <ul>
+        <li><input type="checkbox" id="api1"> Criar APIs Mock (Mockoon, JSON Server)</li>
+        <li><input type="checkbox" id="api2"> Integrar mocks ao projeto</li>
+        <li><input type="checkbox" id="api3"> Explorar APIs externas</li>
+      </ul>
+    </details>
+
+    <!-- Fase 4 -->
+    <details>
+      <summary>4️⃣ Java Spring Boot</summary>
+      <ul>
+        <li><input type="checkbox" id="sb1"> Estrutura MVC: Controller, Service, Repository, DTOs</li>
+        <li><input type="checkbox" id="sb2"> Clean Code + Lombok</li>
+        <li><input type="checkbox" id="sb3"> JPA & Hibernate</li>
+        <li><input type="checkbox" id="sb4"> Mapper: MapStruct/ModelMapper</li>
+        <li><input type="checkbox" id="sb5"> Beans, Configurações, Profiles (.env)</li>
+        <li><input type="checkbox" id="sb6"> Segurança: Spring Security, JWT, OAuth2</li>
+        <li><input type="checkbox" id="sb7"> Swagger UI, Actuator</li>
+        <li><input type="checkbox" id="sb8"> Testes: JUnit, Mockito, WireMock, Testcontainers</li>
+        <li><input type="checkbox" id="sb9"> Integração com APIs externas</li>
+      </ul>
+    </details>
+
+    <!-- Fase 5 -->
+    <details>
+      <summary>5️⃣ DevOps & Deploy</summary>
+      <ul>
+        <li><input type="checkbox" id="do1"> Dockerfile, docker-compose, .dockerignore</li>
+        <li><input type="checkbox" id="do2"> Containers, Networks, Images</li>
+        <li><input type="checkbox" id="do3"> Push/Pull em registries</li>
+        <li><input type="checkbox" id="do4"> CI/CD: GitHub Actions, Jenkins</li>
+        <li><input type="checkbox" id="do5"> Kubernetes (avançado)</li>
+      </ul>
+    </details>
+
+    <!-- Fase 6 -->
+    <details>
+      <summary>6️⃣ Testes Automatizados</summary>
+      <ul>
+        <li><input type="checkbox" id="t1"> Web: Selenium, Playwright, Cypress</li>
+        <li><input type="checkbox" id="t2"> Mobile: Appium, Robot Framework</li>
+        <li><input type="checkbox" id="t3"> APIs: Postman, Insomnia, JMeter</li>
+        <li><input type="checkbox" id="t4"> Contratos: Pact</li>
+      </ul>
+    </details>
+
+    <!-- Fase 7 -->
+    <details>
+      <summary>7️⃣ Observabilidade & Qualidade</summary>
+      <ul>
+        <li><input type="checkbox" id="o1"> Spring Boot Actuator</li>
+        <li><input type="checkbox" id="o2"> SonarQube (qualidade e cobertura)</li>
+        <li><input type="checkbox" id="o3"> Logs: ELK Stack, Loki</li>
+        <li><input type="checkbox" id="o4"> Dashboards: Prometheus + Grafana</li>
+      </ul>
+    </details>
+
+    <!-- Fase 8 -->
+    <details>
+      <summary>8️⃣ Segurança e Boas Práticas</summary>
+      <ul>
+        <li><input type="checkbox" id="s1"> OWASP Dependency Check</li>
+        <li><input type="checkbox" id="s2"> Vault/SOPS para secrets</li>
+        <li><input type="checkbox" id="s3"> JWT/OAuth2 melhores práticas</li>
+      </ul>
+    </details>
+
+    <p class="note">✔ Seu progresso fica salvo no navegador (localStorage).</p>
+  </div>
+
+<script>
+  // Carregar progresso salvo
+  document.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    const saved = localStorage.getItem(cb.id);
+    if (saved === "true") cb.checked = true;
+    cb.addEventListener("change", () => {
+      localStorage.setItem(cb.id, cb.checked);
+    });
+  });
+</script>
+</body>
+</html>
